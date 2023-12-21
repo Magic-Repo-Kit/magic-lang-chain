@@ -1,6 +1,7 @@
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+from langchain.callbacks import get_openai_callback
 
 prompt = ChatPromptTemplate.from_template("我想去 <{topic}> 旅行，我想知道这个地方有什么好玩的")
 
@@ -12,11 +13,21 @@ chat = ChatOpenAI(
                  )
 
 # 输出模板
-print(prompt.messages[0].prompt.input_variables)
+print("输出模板:",prompt.messages[0].prompt)
 
-output_parser = StrOutputParser()
+# token消费回调
+with get_openai_callback() as callback:
+    # 输出解析器
+    output_parser = StrOutputParser()
 
-chain = prompt | chat | output_parser
+    chain = prompt | chat | output_parser
 
-print(chain.invoke({"topic": "广州"}))
+    print("AI:",chain.invoke({"topic": "广州"}))
+
+    print("token消费:",callback)
+
+    
+
+
+
     

@@ -1,2 +1,4 @@
 langchain
 openai
+redis
+faiss-cpu
