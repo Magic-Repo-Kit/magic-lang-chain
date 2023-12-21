@@ -7,8 +7,8 @@ prompt = ChatPromptTemplate.from_template("我想去 <{topic}> 旅行，我想�
 
 # 提示词模板
 chat = ChatOpenAI(
-    openai_api_key="sk-gRbZ9FJz2E7c7mwO5JOvp2u2rtoWoAbg12CxDy3Y25eLeDvd",
-    openai_api_base="https://api.chatanywhere.tech",
+    openai_api_key="",
+    openai_api_base="",
     temperature=.7
                  )
 
