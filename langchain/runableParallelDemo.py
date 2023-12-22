@@ -19,8 +19,6 @@ def track_token_usage(chain:RunnableSequence,query):
 vectorstore = faiss.FAISS.from_texts(
     texts=["2023年亚运会在杭州举行","2022年冬奥会在北京举行","2021年世界杯在卡塔尔举行"], 
     embedding=OpenAIEmbeddings(
-      openai_api_key="sk-gRbZ9FJz2E7c7mwO5JOvp2u2rtoWoAbg12CxDy3Y25eLeDvd",
-      openai_api_base="https://api.chatanywhere.com.cn/v1",
     )
 )
 retriever = vectorstore.as_retriever()
